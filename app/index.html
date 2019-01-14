@@ -10,6 +10,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bank Customer Statment Processor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
@@ -55,14 +56,17 @@
 
       <div class="row">
         <div class="col-md-12">
-          <div class="panel-heading"><strong>BULK TOP UP</strong> <small></small></div>
+          <div class="panel-heading col-md-4"><strong>This app processes XML and CSV files only</strong>
+            <small>
+              <p>*Your uploaded csv file will be shown to you in a preview for Confirmation</p>
+            </small></div>
           <div class="box box-info">
 
             <div class="box-body table-responsive">
-              <hr>
+
               <hr>
               <!-- form start -->
-              <p>Your uploaded csv file will be shown to you in a preview for Confirmation</p>
+
               <form role="form" class="form-horizontal" name="bulkDirectForm" method="post" enctype="multipart/form-data"
                 novalidate>
                 <div class="box-body">
@@ -70,15 +74,19 @@
                   <div id="warning" class="alert alert-warning" data-ng-show="warning" data-ng-bind="warning"></div>
 
                   <div class="form-group">
-                    <div class="col-sm-10">
-                      <input type="file" class="form-control" id="bulkDirectFile" placeholder="CSV file with phone numbers and amount"
-                        ng-model="prd.bulk_direct_file">
-                    </div>
-                    <div class="col-sm-2">
-                      <button type="submit" class="btn btn-block btn-info" ng-hide="myVar" data-ng-click="submitForm(bulkDirectForm)">Upload!</button>
-                    </div>
 
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <input type="file" class="form-control " id="bulkDirectFile" placeholder="CSV file with phone numbers and amount"
+                            ng-model="prd.bulk_direct_file">
+                        </div>
 
+                        <div class="col-sm-2">
+                          <button type="submit" class="btn btn-block btn-info" ng-hide="myVar" data-ng-click="submitForm(bulkDirectForm)">Upload!</button>
+                        </div>
+                      </div>
+                    </div>
                     <br>
                     <br>
 

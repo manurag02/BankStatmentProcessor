@@ -102,7 +102,7 @@ angular
           var fileSize = 0;
 
           if (bVal && sExtension == "csv") {
-            $scope.warning = "File Read successfully Press proceed!";
+            $scope.warning = "CSV File Read successfully Press proceed!";
             if (filename.files[0]) {
               var reader = new FileReader();
               reader.onload = function(e) {
@@ -115,7 +115,8 @@ angular
             return false;
           } else if (bVal && sExtension == "xml") {
             $scope.warning = "XML file uploaded";
-            $scope.messages = "File processed successfully! See results below!";
+            $scope.messages =
+              "XML File processed successfully! See results below!";
 
             if (filename.files[0]) {
               console.log("inside if xml");
@@ -187,7 +188,7 @@ angular
                 );
                 $scope.warning = "";
                 $scope.messages =
-                  "File processed successfully! See results below!";
+                  "XML File processed successfully! See results below!";
 
                 for (var m = 0; m < len; m++) {
                   noDup = true;
@@ -266,7 +267,7 @@ angular
 
       $scope.add = function() {
         $scope.warning = "";
-        $scope.messages = "File processed successfully! See results below!";
+        $scope.messages = "CSV File processed successfully! See results below!";
 
         console.log("bVal outside" + bVal);
         //   Convert to JSON function
