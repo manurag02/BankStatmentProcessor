@@ -5,6 +5,7 @@
   border-bottom: 0.1em solid black;
   margin-bottom: 2em;
   padding: 0 0 0.5em;
+  background-color: #042251;
 }
 
 .menu:before {
@@ -22,4 +23,10 @@
 .menu > li + li:before {
   content: "|";
   padding-right: 0.3em;
+}
+
+.header {
+  font-family: "Coiny", cursive;
+  color: aliceblue;
+  margin-top: 0.5em;
 }

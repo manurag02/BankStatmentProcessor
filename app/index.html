@@ -2,42 +2,126 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>Bank Customer Statment Processor</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
   <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 </head>
+
 <body>
-  <ul class="menu">
+  <!-- <ul class="menu">
     <li><a href="#!/view1">view1</a></li>
     <li><a href="#!/view2">view2</a></li>
-  </ul>
+    <li>
+      Welcome to statement Processor App
+    </li>
+  </ul> -->
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">ABN Bank</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="col-md-4 offset-md-4 header">
+        <p>Welcome to Statement Processor</p>
+      </div>
+    </div>
+  </nav>
 
   <div ng-view></div>
 
-  <div>AngularJS seed app: v<span app-version></span></div>
+
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  <div ng-controller="CsvCtrl">
+    <section class="content">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel-heading"><strong>BULK TOP UP</strong> <small></small></div>
+          <div class="box box-info">
+
+            <div class="box-body table-responsive">
+              <hr>
+              <hr>
+              <!-- form start -->
+              <p>Your uploaded csv file will be shown to you in a preview for Confirmation</p>
+              <form role="form" class="form-horizontal" name="bulkDirectForm" method="post" enctype="multipart/form-data"
+                novalidate>
+                <div class="box-body">
+                  <div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"></div>
+                  <div id="warning" class="alert alert-warning" data-ng-show="warning" data-ng-bind="warning"></div>
+
+                  <div class="form-group">
+                    <div class="col-sm-10">
+                      <input type="file" class="form-control" id="bulkDirectFile" placeholder="CSV file with phone numbers and amount"
+                        ng-model="prd.bulk_direct_file">
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="submit" class="btn btn-block btn-info" ng-hide="myVar" data-ng-click="submitForm(bulkDirectForm)">Upload!</button>
+                    </div>
+
+
+                    <br>
+                    <br>
+
+
+                    <div class="col-sm-10" ng-show=title id="Table">
+
+                      <div id="dvCSV"></div>
+
+                      <br>
+
+                      <button type="button" class="btn btn-success" data-ng-click="add()">Proceed!</button>
+                      <button type="reset" class="btn btn-success" id="reset-btn" ng-click="reset()">Reset?</button>
+                    </div>
+
+
+
+                  </div>
+
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+  </div>
+
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
+  <scritp src="xml2json.js"></scritp>
+  <!----script type="javascript" src="https://raw.githubusercontent.com/abdmob/x2js/master/xml2json.min.js" charset="UTF-8"></script-->
   <script src="core/version/version.js"></script>
   <script src="core/version/version-directive.js"></script>
   <script src="core/version/interpolate-filter.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://unpkg.com/papaparse@4.6.3/papaparse.min.js"></script>
+
 </body>
+
 </html>
